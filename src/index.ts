@@ -53,9 +53,9 @@ class Test {
     shouldNotBe(expectations:any[]):Test {
         let isany = false
         for (let i = 0; i<expectations.length; i++) {
-            isany = isany || (expectations[i] != this.output)
+            isany = isany || (expectations[i] == this.output)
         }
-        this.passing = (this.passing&&isany)
+        this.passing = (this.passing&&!isany)
         return this
     }
     /**
@@ -124,7 +124,7 @@ class Test {
         return this
     }
     /**
-     * Abort throwing an error if not all tests pass
+     * Abort throwing an error if not all tests pass.
      * @returns The test
      * @since 1.1.0
      */
