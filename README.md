@@ -9,9 +9,9 @@ npm i simpltest
 const st = require("simpltest")
 
 st.createTest(Greeter("Carl"), "Greeter")
-    .shouldBe("Hello Carl!")
+    .shouldBe(["Hello Carl!", "Whats up, Carl?"])
 
 function Greeter(name) {
-    return `Hello ${name}!`
+    return [`Hello ${name}!`, `Whats up, ${name}?`][Math.floor(Math.random()*2)]
 }
 ```
