@@ -9,15 +9,19 @@ class Test {
     passing:boolean = true
     finished:boolean = false
     shouldBe(expectations:any[]):Test {
-        for (let i = 1; i<expectations.length; i++) {
-            this.passing = !(!this.passing||expectations!=this.output)
+        let isany = false
+        for (let i = 0; i<expectations.length; i++) {
+            isany = isany || (expectations[i] == this.output)
         }
+        this.passing = (this.passing&&isany)
         return this
     }
     shouldNotBe(expectations:any[]):Test {
-        for (let i = 1; i<expectations.length; i++) {
-            this.passing = !(!this.passing||expectations==this.output)
+        let isany = false
+        for (let i = 0; i<expectations.length; i++) {
+            isany = isany || (expectations[i] != this.output)
         }
+        this.passing = (this.passing&&isany)
         return this
     }
     setName(name:string):Test {
@@ -30,7 +34,7 @@ class Test {
     }
     finish():Test {
         if (this.passing) {
-            console.log(kleur.green(`${kleur.bold().blue(this.name)} passed. Got: {${kleur.yellow("\"["+this.output+"\"]")}}`))
+            console.log(kleur.green(`${kleur.bold().blue(this.name)} passed.`))
         } else {
             console.log(kleur.red(`${kleur.bold().magenta(this.name)} failed. Got: {${kleur.green("\"["+this.output+"\"]")}}`))
         }
@@ -61,9 +65,9 @@ class Test {
         process.on('beforeExit', ()=>{
             if (!this.finished) this.finish();
             if (sendError) {
-                throw "Not all tests passed."
+                throw kleur.red("Not all tests passed.")
             } else {
-                console.log("All tests passed.")
+                console.log(kleur.green("All tests passed."))
             }
         })
     }
