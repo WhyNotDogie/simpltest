@@ -15,3 +15,7 @@ function Greeter(name) {
     return [`Hello ${name}!`, `Whats up, ${name}?`][Math.floor(Math.random()*2)]
 }
 ```
+## What's new
+v1.1.0:
+- Added JSDOC descriptions.
+- Added `abortError` for if you don't want an error thrown when not all tests pass.
