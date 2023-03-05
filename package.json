@@ -1,0 +1,24 @@
+{
+  "name": "simpltest",
+  "version": "1.0.0",
+  "description": "A simple, quick and easy way to test your code.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhyNotDogie/simpltest.git"
+  },
+  "keywords": [
+    "test",
+    "tests",
+    "simple"
+  ],
+  "author": "WhyNotDogie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WhyNotDogie/simpltest/issues"
+  },
+  "homepage": "https://github.com/WhyNotDogie/simpltest#readme"
+}
