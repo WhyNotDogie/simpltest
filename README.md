@@ -16,6 +16,9 @@ function Greeter(name) {
 }
 ```
 ## What's new
+patch v1.1.3:
+- Fixed bug in readme.
+
 patch v1.1.2:
 - Fixed bug where "all tests passed" is sent multiple times.
 
