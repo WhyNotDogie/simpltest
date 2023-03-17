@@ -16,6 +16,8 @@ function Greeter(name) {
 }
 ```
 ## What's new
+patch v1.1.2:
+- Fixed bug where "all tests passed" is sent multiple times.
 v1.1.0:
 - Added JSDOC descriptions.
 - Added `abortError` for if you don't want an error thrown when not all tests pass.
