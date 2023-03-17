@@ -159,21 +159,22 @@ class Test {
         this.output = output
         this.name = name
         tests[name] = this
-        process.on('beforeExit', ()=>{
-            if (!this.finished) this.finish();
-            if (sendError) {
-                if (dse) {
-                    console.log(kleur.red("Not all tests passed."))
-                } else {
-                    throw kleur.red("Not all tests passed.")
-                }
-            } else {
-                console.log(kleur.green("All tests passed."))
-            }
-        })
         return this
     }
 }
+
+process.on('beforeExit', ()=>{
+    if (!this.finished) this.finish();
+    if (sendError) {
+        if (dse) {
+            console.log(kleur.red("Not all tests passed."))
+        } else {
+            throw kleur.red("Not all tests passed.")
+        }
+    } else {
+        console.log(kleur.green("All tests passed."))
+    }
+})
 
 /**
  * Create a new simpltest Test.
